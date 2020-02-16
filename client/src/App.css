@@ -47,6 +47,7 @@
   height:300px;
   border:2px solid black;
   position: relative;
+  overflow: scroll;
 }
 
 .outfit{
