@@ -20,7 +20,8 @@ class App extends Component {
         this.state.messages.push({
           name: data[x].name,
           text: data[x].message,
-          id: data[x]._id ? data[x]._id : v1()
+          id: data[x]._id ? data[x]._id : v1(),
+          time: data[x].time,
         });
         this.setState(this.state.messages);
       }
@@ -92,7 +93,7 @@ class App extends Component {
           <div id="messages" className="message-box">
             {
               messages && messages.map(msg => (
-                <div className="msg" key={msg.id}>{msg.name + ": " + msg.text}</div>
+                <div className="msg" key={msg.id}>{"[" + msg.time + "]  " + msg.name + ": " + msg.text}</div>
               ))
             }
           </div >

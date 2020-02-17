@@ -32,6 +32,7 @@ mongo.connect('mongodb://admin:admin@cluster0-shard-00-00-7wfhq.mongodb.net:2701
         socket.on('input', function (data) {
             let name = data.name;
             let message = data.message;
+            data.time = new Date().toLocaleTimeString('it-IT');
 
             // Check for name and message
             if (name == '' || message == '') {
@@ -39,7 +40,7 @@ mongo.connect('mongodb://admin:admin@cluster0-shard-00-00-7wfhq.mongodb.net:2701
                 sendStatus('Please enter a name and message');
             } else {
                 // Insert message
-                chat.insert({ name: name, message: message, time: new Date().toLocaleTimeString('it-IT') }, function () {
+                chat.insert({ name: name, message: message, time: data.time }, function () {
                     client.emit('output', [data]);
 
                     // Send status object
