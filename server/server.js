@@ -32,7 +32,7 @@ mongo.connect('mongodb://admin:admin@cluster0-shard-00-00-7wfhq.mongodb.net:2701
         socket.on('input', function (data) {
             let name = data.name;
             let message = data.message;
-            data.time = new Date().toLocaleTimeString('it-IT');
+            data.time = new Date();
 
             // Check for name and message
             if (name == '' || message == '') {

@@ -17,11 +17,12 @@ class App extends Component {
 
     if (data.length) {
       for (let x = 0; x < data.length; x++) {
+        let date = new Date(data[x].time);
         this.state.messages.push({
           name: data[x].name,
           text: data[x].message,
           id: data[x]._id ? data[x]._id : v1(),
-          time: data[x].time,
+          time: date.toLocaleTimeString('it-IT'),
         });
         this.setState(this.state.messages);
       }
